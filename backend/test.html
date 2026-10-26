@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>VartiSpace Backend Test</title>
+</head>
+
+<body>
+
+  <h1>Test Add Property</h1>
+
+  <button onclick="addProperty()">
+    Add Property
+  </button>
+
+  <script>
+
+    function addProperty() {
+
+      fetch("http://localhost:5000/properties", {
+
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+          name: "Sunrise PG",
+          location: "Jaipur",
+          price: 7500
+        })
+
+      })
+      .then(response => response.json())
+      .then(data => {
+
+        console.log(data);
+
+      });
+
+    }
+
+  </script>
+
+</body>
+
+</html>
